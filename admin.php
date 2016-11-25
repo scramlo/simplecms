@@ -6,6 +6,15 @@ $themeTitle = "";
 <div class="container-fluid">
   <div class="row">
 
+    <div id="errorMsg" style="display:none;" class="col-xs-12">
+      <div id="errorMsgText" class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Oh snap!</strong>
+      </div>
+    </div>
+
     <div class="col-xs-4">
       Admin Panel
       <hr>
@@ -36,7 +45,7 @@ $themeTitle = "";
                 </div>
                 <div class="form-group">
                   <label for="userCurrentPassword">Current Password</label>
-                  <input type="password" class="form-control" id="userCurrentPassword" placeholder="Password">
+                  <input name="userCurrentPassword" type="password" class="form-control" id="userCurrentPassword" placeholder="Password">
                 </div>
                 <div class="form-group">
                   <label for="userNewPassword">New Password</label>
@@ -155,43 +164,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  //*** If User First Name was changed ***
+  //*** User First Name ***
+  //If first name is not empty
   if (!empty($_POST["userFirstName"])) {
 
-    //Refresh page
-    echo "<meta http-equiv='refresh' content='0'>";
+    //If First name matches match current first name
+    if ($_POST["userFirstName"] !== $json->user[0]->firstName) {
 
-    //Create first name variable, just for ease of readying
-    $firstName = $_POST["userFirstName"];
+      //Refresh page
+      //echo "<meta http-equiv='refresh' content='0'>";
 
-    //Change First Name
-    $json->user[0]->firstName = $firstName;
+      //Create first name variable, just for ease of reading
+      $firstName = $_POST["userFirstName"];
+
+      //Change First Name
+      $json->user[0]->firstName = $firstName;
+    }
   }
 
-  //*** If User Last Name was changed ***
+  //*** User Last Name ***
+  //If Last name is not empty
   if (!empty($_POST["userLastName"])) {
 
-    //Refresh page
-    echo "<meta http-equiv='refresh' content='0'>";
+    //If Last name doesn't match current Last name
+    if ($_POST["userLastName"] !== $json->user[0]->LastName) {
 
-    //Create first name variable, just for ease of readying
-    $lastName = $_POST["userLastName"];
+      //Refresh page
+      //echo "<meta http-equiv='refresh' content='0'>";
 
-    //Change Last Name
-    $json->user[0]->lastName = $lastName;
+      //Create Last name variable, just for ease of reading
+      $LastName = $_POST["userLastName"];
+
+      //Change Last Name
+      $json->user[0]->LastName = $LastName;
+    }
   }
 
   //*** If Password was changed ***
-  if (!empty($_POST["userLastName"])) {
+  if ((!empty($_POST["userNewPassword"])) && (!empty($_POST["userConfirmPassword"]))) {
 
     //Refresh page
-    echo "<meta http-equiv='refresh' content='0'>";
+    //echo "<meta http-equiv='refresh' content='0'>";
 
     //Create first name variable, just for ease of readying
-    $lastName = $_POST["userLastName"];
+    $currentPass = $_POST["userCurrentPassword"];
+    $newPass = $_POST["userNewPassword"];
+    $confirmPass = $_POST["userConfirmPassword"];
 
-    //Change Last Name
-    $json->user[0]->lastName = $lastName;
+    //Password Validation
+    //If current password is equal to correct current password
+    if ($currentPass == $json->user[0]->password) {
+      //If new password matches confirmation password
+      if ($newPass == $confirmPass) {
+        //Change Password
+        $json->user[0]->password = $newPass;
+      } else {
+        echo "<script>";
+        echo "$('#errorMsgText').append('Password do not match.');";
+        echo "$('#errorMsg').fadeIn();</script>";
+        echo "</script>";
+      }
+    } else {
+      echo "<script>";
+      echo "$('#errorMsgText').append('That is not your password.');";
+      echo "$('#errorMsg').fadeIn();</script>";
+      echo "</script>";
+    }
   }
 
   //Convert Objects to JSON

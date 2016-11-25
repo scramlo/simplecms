@@ -74,7 +74,8 @@
             "firstName": "Brian",
             "lastName": "Wayne",
             "email": "scramlo@hotmail.com",
-            "password": "tipper"
+            "password": "test",
+            "LastName": "Wayne"
         }
     ]
 }
