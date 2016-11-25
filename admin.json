@@ -2,7 +2,7 @@
     "theme": [
         {
             "title": "White Knight",
-            "active": false,
+            "active": true,
             "css": [
                 {
                     "body": [
@@ -22,7 +22,7 @@
         },
         {
             "title": "Dark Knight",
-            "active": true,
+            "active": false,
             "css": [
                 {
                     "body": [
@@ -43,13 +43,38 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Green Machine",
+            "active": false,
+            "css": [
+                {
+                    "body": [
+                        {
+                            "background-color": "rgb(20, 92, 36)",
+                            "color": "white"
+                        }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "rgb(64, 38, 0)"
+                        }
+                    ],
+                    "hr": [
+                        {
+                            "background-color": "white"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "user": [
         {
             "firstName": "Brian",
-            "lastName": "Scramlin",
-            "email": "scramlo@hotmail.com"
+            "lastName": "Wayne",
+            "email": "scramlo@hotmail.com",
+            "password": "tipper"
         }
     ]
 }
