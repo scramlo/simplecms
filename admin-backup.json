@@ -1,55 +1,80 @@
 {
-  "theme": [
-    {
-      "title": "White Knight",
-      "active": "true",
-      "css": [
+    "theme": [
         {
-          "body": [
-            {
-              "background-color": "white",
-              "color": "black"
-            }
-          ],
-          "#side-panel": [
-            {
-              "background-color": "#eee",
-              "padding": "2rem 0.5rem"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Dark Knight",
-      "active": "false",
-      "css": [
+            "title": "White Knight",
+            "active": false,
+            "css": [
+                {
+                    "body": [
+                        {
+                            "background-color": "white",
+                            "color": "black"
+                        }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "#eee",
+                            "padding": "2rem 0.5rem"
+                        }
+                    ]
+                }
+            ]
+        },
         {
-          "body": [
-            {
-              "background-color": "black",
-              "color": "white"
-            }
-          ],
-          "#side-panel": [
-            {
-              "background-color": "slateGray"
-            }
-          ],
-          "hr": [
-            {
-              "background-color": "white"
-            }
-          ]
+            "title": "Dark Knight",
+            "active": true,
+            "css": [
+                {
+                    "body": [
+                        {
+                            "background-color": "#3b3b3b",
+                            "color": "white"
+                        }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "slateGray"
+                        }
+                    ],
+                    "hr": [
+                        {
+                            "background-color": "white"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Green Machine",
+            "active": false,
+            "css": [
+                {
+                    "body": [
+                        {
+                            "background-color": "rgb(20, 92, 36)",
+                            "color": "white"
+                        }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "rgb(64, 38, 0)"
+                        }
+                    ],
+                    "hr": [
+                        {
+                            "background-color": "white"
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "user": [
-    {
-      "firstName": "Brian",
-      "lastName": "Scramlin",
-      "email": "scramlo@hotmail.com"
-    }
-  ]
+    ],
+    "user": [
+        {
+            "firstName": "Brian",
+            "lastName": "Scramlin",
+            "email": "scramlo@hotmail.com",
+            "password": "tipper"
+        }
+    ]
 }

@@ -69,12 +69,10 @@
             ]
         }
     ],
-    "user": [
-        {
+    "user": {
             "firstName": "Brian",
             "lastName": "Scramlin",
             "email": "scramlo@hotmail.com",
             "password": "tipper"
         }
-    ]
 }

@@ -20,7 +20,7 @@ $themeTitle = "";
       <hr>
       <div id="side-panel" class="card">
         <div class="card-block">
-          <h4>Welcome <?= $json->user[0]->firstName ?>!</h4>
+          <h4>Welcome <?= $json->user->firstName ?>!</h4>
           <hr>
 
           <?php //Begin User Settings ?>
@@ -33,15 +33,15 @@ $themeTitle = "";
               <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <div class="form-group">
                   <label for="userFirstName">First Name</label>
-                  <input value="<?= $json->user[0]->firstName ?>" name="userFirstName" type="text" class="form-control" id="userFirstName" placeholder="First Name">
+                  <input value="<?= $json->user->firstName ?>" name="userFirstName" type="text" class="form-control" id="userFirstName" placeholder="First Name">
                 </div>
                 <div class="form-group">
                   <label for="userLastName">Last Name</label>
-                  <input value="<?= $json->user[0]->lastName ?>" name="userLastName" type="text" class="form-control" id="userLastName" placeholder="Last Name">
+                  <input value="<?= $json->user->lastName ?>" name="userLastName" type="text" class="form-control" id="userLastName" placeholder="Last Name">
                 </div>
                 <div class="form-group">
                   <label for="userEmail">Email address</label>
-                  <input value="<?= $json->user[0]->email ?>" name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email Address">
+                  <input value="<?= $json->user->email ?>" name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email Address">
                 </div>
                 <div class="form-group">
                   <label for="userCurrentPassword">Current Password</label>
@@ -111,7 +111,7 @@ $themeTitle = "";
             <hr>
             <?php
               echo "<pre style='background:#eee;'>";
-              //var_dump($json->user[0]->firstName);
+              //var_dump($json->user->firstName);
               echo "</pre>";
             ?>
           </div>
@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["userFirstName"])) {
 
     //If First name matches match current first name
-    if ($_POST["userFirstName"] !== $json->user[0]->firstName) {
+    if ($_POST["userFirstName"] !== $json->user->firstName) {
 
       //Refresh page
       echo "<meta http-equiv='refresh' content='0'>";
@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $firstName = $_POST["userFirstName"];
 
       //Change First Name
-      $json->user[0]->firstName = $firstName;
+      $json->user->firstName = $firstName;
     }
   }
 
@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["userLastName"])) {
 
     //If Last name doesn't match current Last name
-    if ($_POST["userLastName"] !== $json->user[0]->lastName) {
+    if ($_POST["userLastName"] !== $json->user->lastName) {
 
       //Refresh page
       echo "<meta http-equiv='refresh' content='0'>";
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $lastName = $_POST["userLastName"];
 
       //Change Last Name
-      $json->user[0]->lastName = $lastName;
+      $json->user->lastName = $lastName;
     }
   }
 
@@ -191,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["userEmail"])) {
 
     //If Email doesn't match current Email
-    if ($_POST["userEmail"] !== $json->user[0]->email) {
+    if ($_POST["userEmail"] !== $json->user->email) {
 
       //Refresh page
       echo "<meta http-equiv='refresh' content='0'>";
@@ -200,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $email = $_POST["userEmail"];
 
       //Change Email
-      $json->user[0]->email = $email;
+      $json->user->email = $email;
     }
   }
 
@@ -217,11 +217,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Password Validation
     //If current password is equal to correct current password
-    if ($currentPass == $json->user[0]->password) {
+    if ($currentPass == $json->user->password) {
       //If new password matches confirmation password
       if ($newPass == $confirmPass) {
         //Change Password
-        $json->user[0]->password = $newPass;
+        $json->user->password = $newPass;
       } else {
         echo "<script>";
         echo "$('#errorMsgText').append('Password do not match.');";
