@@ -63,53 +63,39 @@ $themeTitle = "";
 
           <?php //Begin Admin Theme Options Section ?>
           <p>
-          <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseThemes" aria-expanded="false" aria-controls="collapseThemes">
-            Admin Themes
-            <span class="pull-xs-right">&#9660;</span>
-          </a>
+            <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseThemes" aria-expanded="false" aria-controls="collapseThemes">
+              Admin Themes
+              <span class="pull-xs-right">&#9660;</span>
+            </a>
             <div class="collapse" id="collapseThemes">
-              <p>
-                Current Theme:<br>
-                <em>
-                <?php
+              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <div class="form-group">
+                  <label for="changeTheme">Change Theme</label>
+                  <?php $i = 0; ?>
+                  <?php
+                  $currentThemeTitle = "";
                   foreach ($json->theme as $theme) {
                     if ($theme->active == "true") {
-                      echo $theme->title;
+                      $currentThemeTitle = $theme->title;
                     }
                   }
-                ?>
-                </em>
-              </p>
-              <p>
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                  <div class="form-group">
-                    <label for="changeTheme">Change Theme</label>
-                    <?php $i = 0; ?>
-                    <?php
-                    $currentThemeTitle = "";
-                    foreach ($json->theme as $theme) {
-                      if ($theme->active == "true") {
-                        $currentThemeTitle = $theme->title;
-                      }
-                    }
-                    ?>
-                    <?php foreach ($json->theme as $theme) : ?>
-                      <?php $checked = ""; ?>
-                      <?php if ($theme->title == $currentThemeTitle): ?>
-                        <?php $checked = "checked"; ?>
-                      <?php endif; ?>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="changeThemeRadios" id="changeThemeRadios-<?= $i ?>" value="<?= $theme->title ?>" <?= $checked ?>>
-                          <?= $theme->title ?>
-                        </label>
-                      </div>
-                      <?php $i++; ?>
-                    <?php endforeach; ?>
-                  </div>
-                  <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
-                </form>
-              </p>
+                  ?>
+                  <?php foreach ($json->theme as $theme) : ?>
+                    <?php $checked = ""; ?>
+                    <?php if ($theme->title == $currentThemeTitle): ?>
+                      <?php $checked = "checked"; ?>
+                    <?php endif; ?>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="changeThemeRadios" id="changeThemeRadios-<?= $i ?>" value="<?= $theme->title ?>" <?= $checked ?>>
+                        <?= $theme->title ?>
+                      </label>
+                    </div>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </div>
+                <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+              </form>
             </div>
           </p>
           <?php //End Admin Themes Section ?>
@@ -125,7 +111,7 @@ $themeTitle = "";
             <hr>
             <?php
               echo "<pre style='background:#eee;'>";
-              var_dump($json->user[0]->firstName);
+              //var_dump($json->user[0]->firstName);
               echo "</pre>";
             ?>
           </div>
@@ -172,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["userFirstName"] !== $json->user[0]->firstName) {
 
       //Refresh page
-      //echo "<meta http-equiv='refresh' content='0'>";
+      echo "<meta http-equiv='refresh' content='0'>";
 
       //Create first name variable, just for ease of reading
       $firstName = $_POST["userFirstName"];
@@ -187,16 +173,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST["userLastName"])) {
 
     //If Last name doesn't match current Last name
-    if ($_POST["userLastName"] !== $json->user[0]->LastName) {
+    if ($_POST["userLastName"] !== $json->user[0]->lastName) {
 
       //Refresh page
-      //echo "<meta http-equiv='refresh' content='0'>";
+      echo "<meta http-equiv='refresh' content='0'>";
 
       //Create Last name variable, just for ease of reading
-      $LastName = $_POST["userLastName"];
+      $lastName = $_POST["userLastName"];
 
       //Change Last Name
-      $json->user[0]->LastName = $LastName;
+      $json->user[0]->lastName = $lastName;
+    }
+  }
+
+  //*** User Email ***
+  //If Email is not empty
+  if (!empty($_POST["userEmail"])) {
+
+    //If Email doesn't match current Email
+    if ($_POST["userEmail"] !== $json->user[0]->email) {
+
+      //Refresh page
+      echo "<meta http-equiv='refresh' content='0'>";
+
+      //Create Email variable, just for ease of reading
+      $email = $_POST["userEmail"];
+
+      //Change Email
+      $json->user[0]->email = $email;
     }
   }
 
