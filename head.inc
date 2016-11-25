@@ -1,0 +1,41 @@
+<?php //If this is the admin page, load admin JSON ?>
+<?php if (basename($_SERVER["SCRIPT_FILENAME"]) == "admin.php"): ?>
+  <?php
+    $content = file_get_contents("admin.json");
+    $json = json_decode($content);
+  ?>
+<?php endif; ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <style>
+      body {
+        padding-top:2rem;
+      }
+
+      <?php //If this is the admin page, load admin theme body css ?>
+      <?php if (basename($_SERVER["SCRIPT_FILENAME"]) == "admin.php"){
+      foreach ($json->theme as $theme) {
+        if ($theme->active == "true") {
+          foreach ($theme->css[0] as $selector => $properties) {
+            echo $selector . " {";
+              foreach ($properties[0] as $property => $value) {
+                echo $property . ": " . $value . ";";
+              }
+            echo "}";
+          }
+        }
+      }
+    }
+    ?>
+
+    </style>
+  </head>
+  <body>

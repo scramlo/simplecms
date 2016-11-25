@@ -1,0 +1,55 @@
+{
+  "theme": [
+    {
+      "title": "White Knight",
+      "active": "true",
+      "css": [
+        {
+          "body": [
+            {
+              "background-color": "white",
+              "color": "black"
+            }
+          ],
+          "#side-panel": [
+            {
+              "background-color": "#eee",
+              "padding": "2rem 0.5rem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Dark Knight",
+      "active": "false",
+      "css": [
+        {
+          "body": [
+            {
+              "background-color": "black",
+              "color": "white"
+            }
+          ],
+          "#side-panel": [
+            {
+              "background-color": "slateGray"
+            }
+          ],
+          "hr": [
+            {
+              "background-color": "white"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "user": [
+    {
+      "firstName": "Brian",
+      "lastName": "Scramlin",
+      "email": "scramlo@hotmail.com"
+    }
+  ]
+}
