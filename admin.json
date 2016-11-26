@@ -100,14 +100,14 @@
                                             {
                                                 "element": {
                                                     "type": "div",
-                                                    "class": "col-xs-12",
+                                                    "class": "col-xs-6",
                                                     "content": "",
                                                     "elements": [
                                                         {
                                                             "element": {
                                                                 "type": "div",
                                                                 "class": "",
-                                                                "content": "<p>This is my <strong>first time<\/strong> creating Rich Text on my website! This is significant because<\/p><ol><li>I&#39;ve never done this before.<\/li><li>It&#39;s exciting.<\/li><li>I&#39;m at Tim Horton&#39;s.<\/li><li>There are other things.<\/li><li>I am using a FANTASTIC RTE!!!<\/li><li>Go <a href=\"http:\/\/ckeditor.com\">CKEDITOR<\/a>!<\/li><\/ol>",
+                                                                "content": "<h1>My Home Page<\/h1>\r\n\r\n<h2>The only place you need to be.<\/h2>\r\n\r\n<hr \/>\r\n<p>This is my <strong>first time<\/strong> creating Rich Text on my website!<\/p>\r\n\r\n<p>This is significant because<\/p>\r\n\r\n<ol>\r\n\t<li>I&#39;ve never done this before.<\/li>\r\n\t<li>It&#39;s exciting.<\/li>\r\n\t<li>I&#39;m at Tim Horton&#39;s.<\/li>\r\n\t<li>There are other things.<\/li>\r\n\t<li>I am using a FANTASTIC RTE!!!<\/li>\r\n\t<li>Go <a href=\"http:\/\/ckeditor.com\">CKEDITOR<\/a>!<\/li>\r\n<\/ol>\r\n\r\n<p>I think Jessica said it best<\/p>\r\n\r\n<blockquote>\r\n<p>If you can&#39;t beat em&#39;, join em&#39;!<\/p>\r\n<\/blockquote>\r\n",
                                                                 "elements": []
                                                             }
                                                         }
