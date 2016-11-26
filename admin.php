@@ -121,9 +121,9 @@ $themeTitle = "";
 
             <span id="workspace-preview">Workspace</span>
             <span class="pull-xs-right">
-              <a class="btn btn-primary btn-sm" href="#">Save</a>
               <a id="showPreviewBtn" class="btn btn-info btn-sm" href="#">Preview</a>
               <a style="display:none;" id="showWorkspaceBtn" class="btn btn-info btn-sm" href="#">Workspace</a>
+              <label for="submit-workspace" class="m-b-0 btn btn-primary btn-sm">Save</label>
               <a class="btn btn-success btn-sm" href="#">Publish</a>
             </span>
             <hr>
@@ -131,10 +131,54 @@ $themeTitle = "";
             <div id="workspace">
               <?php if (2==3): ?>
                 <pre style="background:#eee;">
-                  <?php print_r($json->pages[0]->page->elements[0]->element->elements[0]->element->elements[0]->element->elements[0]->element) ?>
+                  <?php print_r($json->pages[0]->page) ?>
                 </pre>
               <?php endif; ?>
-            </div>
+
+              <div id="workspace-accordion" role="tablist">
+                <?php $i = 1; ?>
+
+                <?php //For each page... ?>
+                <?php foreach ($json->pages[0] as $page):
+
+                  //If the page is active (to be shown on screen)
+                  if ($page->active == "true"):
+
+                    //Iterate through page elements
+                    foreach ($page->elements[0] as $element1): ?>
+
+                      <div class="card">
+                        <div class="card-header" role="tab" id="elementHeading<?= $i ?>">
+                          <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i ?>">
+                            Element <?= $i ?>
+                          </a>
+                        </div>
+                        <div id="elementCollapse<?= $i ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i ?>">
+                          <div class="card-block">
+
+                            <form action="updateWorkspace.php" method="post">
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="element<?= $i ?>Tag" value="<?= $element1->type ?>">
+                              </div>
+                              <div class="form-group">
+                                <input class="form-control" type="text" name="element<?= $i ?>Class" value="<?= $element1->class ?>">
+                              </div>
+                              <div class="form-group">
+                                <textarea class="form-control" type="text" name="element<?= $i ?>Content"><?= $element1->content ?></textarea>
+                              </div>
+                              <input type="hidden" name="pageId" value="<?= $page->id ?>">
+                              <input style="position:absolute;" type="submit" id="submit-workspace" class="invisible" />
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+                    <?php endforeach; ?>
+                  <?php endif; //End if page is active ?>
+                <?php endforeach; // End if foreach pages ?>
+
+              </div> <!-- End Accordions -->
+            </div> <!-- End Workspace -->
 
             <div style="display:none;" id="preview">
               <?php //For each page... ?>

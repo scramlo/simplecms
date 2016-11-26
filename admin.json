@@ -1,128 +1,127 @@
 {
-  "theme":[
-    {
-      "title":"White Knight",
-      "active":true,
-      "css":[
+    "theme": [
         {
-          "body":[
-            {
-              "background-color":"white",
-              "color":"black"
-            }
-          ],
-          "#side-panel":[
-            {
-              "background-color":"#eee",
-              "padding":"2rem 0.5rem"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title":"Dark Knight",
-      "active":false,
-      "css":[
-        {
-          "body":[
-            {
-              "background-color":"#3b3b3b",
-              "color":"white"
-            }
-          ],
-          "#side-panel":[
-            {
-              "background-color":"slateGray"
-            }
-          ],
-          "hr":[
-            {
-              "background-color":"white"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title":"Green Machine",
-      "active":false,
-      "css":[
-        {
-          "body":[
-            {
-              "background-color":"rgb(20, 92, 36)",
-              "color":"white"
-            }
-          ],
-          "#side-panel":[
-            {
-              "background-color":"rgb(64, 38, 0)"
-            }
-          ],
-          "hr":[
-            {
-              "background-color":"white"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "user":{
-    "firstName":"Brian",
-    "lastName":"Scramlin",
-    "email":"scramlo@hotmail.com",
-    "password":"tipper"
-  },
-  "pages":[
-    {
-      "page":{
-        "title":"Home",
-        "slug":"index.php",
-        "description":"This page was built with Simple CMS",
-        "published":"true",
-        "active":"true",
-        "elements":[
-          {
-            "element":{
-              "type":"div",
-              "class":"container",
-              "content":"",
-              "elements":[
+            "title": "White Knight",
+            "active": true,
+            "css": [
                 {
-                  "element":{
-                    "type":"div",
-                    "class":"row",
-                    "content":"",
-                    "elements":[
-                      {
-                        "element":{
-                          "type":"div",
-                          "class":"col-xs-12",
-                          "content":"",
-                          "elements":[
-                            {
-                              "element":{
-                                "type":"h1",
-                                "class":"",
-                                "content":"My Fake Page",
-                                "elements":[
-
-                                ]
-                              }
-                            }
-                          ]
+                    "body": [
+                        {
+                            "background-color": "white",
+                            "color": "black"
                         }
-                      }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "#eee",
+                            "padding": "2rem 0.5rem"
+                        }
                     ]
-                  }
                 }
-              ]
+            ]
+        },
+        {
+            "title": "Dark Knight",
+            "active": false,
+            "css": [
+                {
+                    "body": [
+                        {
+                            "background-color": "#3b3b3b",
+                            "color": "white"
+                        }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "slateGray"
+                        }
+                    ],
+                    "hr": [
+                        {
+                            "background-color": "white"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Green Machine",
+            "active": false,
+            "css": [
+                {
+                    "body": [
+                        {
+                            "background-color": "rgb(20, 92, 36)",
+                            "color": "white"
+                        }
+                    ],
+                    "#side-panel": [
+                        {
+                            "background-color": "rgb(64, 38, 0)"
+                        }
+                    ],
+                    "hr": [
+                        {
+                            "background-color": "white"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "user": {
+        "firstName": "Brian",
+        "lastName": "Scramlin",
+        "email": "scramlo@hotmail.com",
+        "password": "tipper"
+    },
+    "pages": [
+        {
+            "page": {
+                "id": "1",
+                "title": "Home",
+                "slug": "index.php",
+                "description": "This page was built with Simple CMS",
+                "published": "true",
+                "active": "true",
+                "elements": [
+                    {
+                        "element": {
+                            "type": "div",
+                            "class": "container",
+                            "content": "",
+                            "elements": [
+                                {
+                                    "element": {
+                                        "type": "div",
+                                        "class": "row",
+                                        "content": "",
+                                        "elements": [
+                                            {
+                                                "element": {
+                                                    "type": "div",
+                                                    "class": "col-xs-12",
+                                                    "content": "",
+                                                    "elements": [
+                                                        {
+                                                            "element": {
+                                                                "type": "h1",
+                                                                "class": "",
+                                                                "content": "My Fake Page",
+                                                                "elements": []
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
-          }
-        ]
-      }
-    }
-  ]
+        }
+    ]
 }
