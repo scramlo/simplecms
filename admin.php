@@ -99,6 +99,17 @@ $themeTitle = "";
             </div>
           </p>
           <?php //End Admin Themes Section ?>
+          <?php //Begin Pages Options Section ?>
+          <p>
+            <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              Pages
+              <span class="pull-xs-right">&#9660;</span>
+            </a>
+            <div class="collapse" id="collapsePages">
+
+            </div>
+          </p>
+          <?php //End Pages Section ?>
         </div>
       </div>
     </div>
@@ -107,13 +118,77 @@ $themeTitle = "";
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            Workspace
+
+            <span id="workspace-preview">Workspace</span>
+            <span class="pull-xs-right">
+              <a class="btn btn-primary btn-sm" href="#">Save</a>
+              <a id="showPreviewBtn" class="btn btn-info btn-sm" href="#">Preview</a>
+              <a style="display:none;" id="showWorkspaceBtn" class="btn btn-info btn-sm" href="#">Workspace</a>
+              <a class="btn btn-success btn-sm" href="#">Publish</a>
+            </span>
             <hr>
-            <?php
-              echo "<pre style='background:#eee;'>";
-              //var_dump($json->user->firstName);
-              echo "</pre>";
-            ?>
+
+            <div id="workspace">
+              <?php if (2==3): ?>
+                <pre style="background:#eee;">
+                  <?php print_r($json->pages[0]->page->elements[0]->element->elements[0]->element->elements[0]->element->elements[0]->element) ?>
+                </pre>
+              <?php endif; ?>
+            </div>
+
+            <div style="display:none;" id="preview">
+              <?php //For each page... ?>
+              <?php foreach ($json->pages[0] as $page) {
+
+                //If the page is active (to be shown on screen)
+                if ($page->active == "true") {
+
+                  //Iterate through page elements
+                  foreach ($page->elements[0] as $element1) {
+
+                    //Open Tag and Class
+                    echo "<" . $element1->type . " class='" . $element1->class . "'>";
+
+                    //Element Content
+                    echo $element1->content;
+
+                    //For each element within element 1
+                    foreach ($element1->elements[0] as $element2) {
+
+                      //Open Tag and Class
+                      echo "<" . $element2->type . " class='" . $element2->class . "'>";
+                      //Element Content
+                      echo $element2->content;
+
+                      //For each element within element 2
+                      foreach ($element2->elements[0] as $element3) {
+
+                        //Open Tag and Class
+                        echo "<" . $element3->type . " class='" . $element3->class . "'>";
+                        //Element Content
+                        echo $element3->content;
+
+                        foreach ($element3->elements[0] as $element4) {
+                          //Open Tag and Class
+                          echo "<" . $element4->type . " class='" . $element4->class . "'>";
+                          //Element Content
+                          echo $element4->content;
+                          //Close Element Tag
+                          echo "</" . $element4->type . ">";
+                        }
+                        //Close Element Tag
+                        echo "</" . $element3->type . ">";
+                      }
+                      //Close Element Tag
+                      echo "</" . $element2->type . ">";
+                    }
+                    // Close Tag
+                    echo "</" . $element1->type . ">";
+                  }
+                } //End if page is active
+              } // End if foreach pages?>
+            </div>
+            <?php // End Preview Window ?>
           </div>
         </div>
       </div>
