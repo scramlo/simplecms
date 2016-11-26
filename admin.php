@@ -123,7 +123,6 @@ $themeTitle = "";
             <span class="pull-xs-right">
               <a id="showPreviewBtn" class="btn btn-info btn-sm" href="#">Preview</a>
               <a style="display:none;" id="showWorkspaceBtn" class="btn btn-info btn-sm" href="#">Workspace</a>
-              <label for="submit-workspace" class="m-b-0 btn btn-primary btn-sm">Save</label>
               <a class="btn btn-success btn-sm" href="#">Publish</a>
             </span>
             <hr>
@@ -131,7 +130,7 @@ $themeTitle = "";
             <div id="workspace">
               <?php if (2==3): ?>
                 <pre style="background:#eee;">
-                  <?php print_r($json->pages[0]->page) ?>
+                  <?php print_r($json->pages[0]->page->elements) ?>
                 </pre>
               <?php endif; ?>
 
@@ -154,22 +153,50 @@ $themeTitle = "";
                           </a>
                         </div>
                         <div id="elementCollapse<?= $i ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i ?>">
-                          <div class="card-block">
-
-                            <form action="updateWorkspace.php" method="post">
+                          <form action="updateWorkspace.php" method="post">
+                            <div class="card-block">
                               <div class="form-group">
+                                <label for="element<?= $i ?>Tag">Tag Name</label>
                                 <input class="form-control" type="text" name="element<?= $i ?>Tag" value="<?= $element1->type ?>">
                               </div>
                               <div class="form-group">
+                                <label for="element<?= $i ?>Class">Class Name</label>
                                 <input class="form-control" type="text" name="element<?= $i ?>Class" value="<?= $element1->class ?>">
                               </div>
                               <div class="form-group">
+                                <label for="element<?= $i ?>Content">Content</label>
                                 <textarea class="form-control" type="text" name="element<?= $i ?>Content"><?= $element1->content ?></textarea>
                               </div>
                               <input type="hidden" name="pageId" value="<?= $page->id ?>">
-                              <input style="position:absolute;" type="submit" id="submit-workspace" class="invisible" />
-                            </form>
-                          </div>
+
+                              <?php foreach ($element1->elements[0] as $element2): ?>
+                                <div class="card m-t-1">
+                                  <div class="card-header" role="tab" id="elementHeading<?= $i+1 ?>">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i+1 ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i+1 ?>">
+                                      Element <?= $i+1 ?>
+                                    </a>
+                                  </div>
+                                  <div id="elementCollapse<?= $i+1 ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i+1 ?>">
+                                    <div class="card-block">
+                                      <div class="form-group">
+                                        <label for="element<?= $i+1 ?>Tag">Tag Name</label>
+                                        <input class="form-control" type="text" name="element<?= $i+1 ?>Tag" value="<?= $element2->type ?>">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="element<?= $i+1 ?>Class">Class Name</label>
+                                        <input class="form-control" type="text" name="element<?= $i+1 ?>Class" value="<?= $element2->class ?>">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="element<?= $i+1 ?>Tag">Content</label>
+                                        <textarea class="form-control" type="text" name="element<?= $i+1 ?>Content"><?= $element2->content ?></textarea>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              <?php endforeach; ?>
+                              <button type="submit" class="btn btn-success btn-sm btn-block">Save</button>
+                            </div>
+                          </form>
                         </div>
                       </div>
 
