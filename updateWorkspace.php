@@ -14,6 +14,14 @@
   $element2Class = $_POST["element2Class"];
   $element2Content = $_POST["element2Content"];
 
+  $element3Tag = $_POST["element3Tag"];
+  $element3Class = $_POST["element3Class"];
+  $element3Content = $_POST["element3Content"];
+
+  $element4Tag = $_POST["element4Tag"];
+  $element4Class = $_POST["element4Class"];
+  $element4Content = $_POST["element4Content"];
+
   //Change Elements
   foreach ($json->pages[0] as $page) {
     if ($page->id == $pageId) {
@@ -27,6 +35,18 @@
           $element2->type = $element2Tag;
           $element2->class = $element2Class;
           $element2->content = $element2Content;
+
+          foreach($element2->elements[0] as $element3) {
+            $element3->type = $element3Tag;
+            $element3->class = $element3Class;
+            $element3->content = $element3Content;
+
+            foreach($element3->elements[0] as $element4) {
+              $element4->type = $element4Tag;
+              $element4->class = $element4Class;
+              $element4->content = $element4Content;
+            }
+          }
         }
       }
     }

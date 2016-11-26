@@ -14,10 +14,19 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title></title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
     <style>
       body {
         padding-top:2rem;
+        padding-bottom:2rem;
+      }
+
+      .uppercase {
+          text-transform: uppercase;
       }
 
       <?php //If this is the admin page, load admin theme body css ?>

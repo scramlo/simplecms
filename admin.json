@@ -105,9 +105,9 @@
                                                     "elements": [
                                                         {
                                                             "element": {
-                                                                "type": "h1",
+                                                                "type": "div",
                                                                 "class": "",
-                                                                "content": "My Fake Page",
+                                                                "content": "<p>This is my <strong>first time<\/strong> creating Rich Text on my website! This is significant because<\/p><ol><li>I&#39;ve never done this before.<\/li><li>It&#39;s exciting.<\/li><li>I&#39;m at Tim Horton&#39;s.<\/li><li>There are other things.<\/li><li>I am using a FANTASTIC RTE!!!<\/li><li>Go <a href=\"http:\/\/ckeditor.com\">CKEDITOR<\/a>!<\/li><\/ol>",
                                                                 "elements": []
                                                             }
                                                         }

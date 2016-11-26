@@ -15,7 +15,7 @@ $themeTitle = "";
       </div>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-3">
       Admin Panel
       <hr>
       <div id="side-panel" class="card">
@@ -114,7 +114,7 @@ $themeTitle = "";
       </div>
     </div>
 
-    <div class="col-xs-8">
+    <div class="col-xs-9">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -141,19 +141,21 @@ $themeTitle = "";
                 <?php foreach ($json->pages[0] as $page):
 
                   //If the page is active (to be shown on screen)
-                  if ($page->active == "true"):
+                  if ($page->active == "true"): ?>
 
-                    //Iterate through page elements
-                    foreach ($page->elements[0] as $element1): ?>
+                    <?php //Begin Workspace Form ?>
+                    <form action="updateWorkspace.php" method="post">
+                      <?php //Iterate through page elements ?>
+                      <?php foreach ($page->elements[0] as $element1): ?>
+                        <div class="card">
+                          <div class="card-header" role="tab" id="elementHeading<?= $i ?>">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i ?>">
+                              Element <?= $i ?>
+                              <span class="text-muted pull-xs-right uppercase"><?= $element1->type ?> <?= $element1->class ?></span>
+                            </a>
+                          </div>
 
-                      <div class="card">
-                        <div class="card-header" role="tab" id="elementHeading<?= $i ?>">
-                          <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i ?>">
-                            Element <?= $i ?>
-                          </a>
-                        </div>
-                        <div id="elementCollapse<?= $i ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i ?>">
-                          <form action="updateWorkspace.php" method="post">
+                          <div id="elementCollapse<?= $i ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i ?>">
                             <div class="card-block">
                               <div class="form-group">
                                 <label for="element<?= $i ?>Tag">Tag Name</label>
@@ -165,7 +167,7 @@ $themeTitle = "";
                               </div>
                               <div class="form-group">
                                 <label for="element<?= $i ?>Content">Content</label>
-                                <textarea class="form-control" type="text" name="element<?= $i ?>Content"><?= $element1->content ?></textarea>
+                                <textarea class="form-control ckeditor" type="text" name="element<?= $i ?>Content"><?= $element1->content ?></textarea>
                               </div>
                               <input type="hidden" name="pageId" value="<?= $page->id ?>">
 
@@ -175,6 +177,7 @@ $themeTitle = "";
                                     <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i+1 ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i+1 ?>">
                                       Element <?= $i+1 ?>
                                     </a>
+                                    <span class="text-muted pull-xs-right uppercase"><?= $element2->type ?> <?= $element2->class ?></span>
                                   </div>
                                   <div id="elementCollapse<?= $i+1 ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i+1 ?>">
                                     <div class="card-block">
@@ -188,19 +191,75 @@ $themeTitle = "";
                                       </div>
                                       <div class="form-group">
                                         <label for="element<?= $i+1 ?>Tag">Content</label>
-                                        <textarea class="form-control" type="text" name="element<?= $i+1 ?>Content"><?= $element2->content ?></textarea>
+                                        <textarea class="form-control ckeditor" type="text" name="element<?= $i+1 ?>Content"><?= $element2->content ?></textarea>
                                       </div>
+
+                                      <?php foreach ($element2->elements[0] as $element3): ?>
+                                        <div class="card m-t-1">
+                                          <div class="card-header" role="tab" id="elementHeading<?= $i+2 ?>">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i+2 ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i+2 ?>">
+                                              Element <?= $i+2 ?>
+                                            </a>
+                                            <span class="text-muted pull-xs-right uppercase"><?= $element3->type ?> <?= $element3->class ?></span>
+                                          </div>
+                                          <div id="elementCollapse<?= $i+2 ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i+2 ?>">
+                                            <div class="card-block">
+                                              <div class="form-group">
+                                                <label for="element<?= $i+2 ?>Tag">Tag Name</label>
+                                                <input class="form-control" type="text" name="element<?= $i+2 ?>Tag" value="<?= $element3->type ?>">
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="element<?= $i+2 ?>Class">Class Name</label>
+                                                <input class="form-control" type="text" name="element<?= $i+2 ?>Class" value="<?= $element3->class ?>">
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="element<?= $i+2 ?>Tag">Content</label>
+                                                <textarea class="form-control ckeditor" type="text" name="element<?= $i+2 ?>Content"><?= $element3->content ?></textarea>
+                                              </div>
+
+                                              <?php foreach ($element3->elements[0] as $element4): ?>
+                                                <div class="card m-t-1">
+                                                  <div class="card-header" role="tab" id="elementHeading<?= $i+3 ?>">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#workspace-accordion" href="#elementCollapse<?= $i+3 ?>" aria-expanded="false" aria-controls="elementCollapse<?= $i+3 ?>">
+                                                      Element <?= $i+3 ?>
+                                                    </a>
+                                                    <span class="text-muted pull-xs-right uppercase"><?= $element4->type ?> <?= $element4->class ?></span>
+                                                  </div>
+                                                  <div id="elementCollapse<?= $i+3 ?>" class="collapse" role="tabpanel" aria-labelledby="elementHeading<?= $i+3 ?>">
+                                                    <div class="card-block">
+                                                      <div class="form-group">
+                                                        <label for="element<?= $i+3 ?>Tag">Tag Name</label>
+                                                        <input class="form-control" type="text" name="element<?= $i+3 ?>Tag" value="<?= $element4->type ?>">
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label for="element<?= $i+3 ?>Class">Class Name</label>
+                                                        <input class="form-control" type="text" name="element<?= $i+3 ?>Class" value="<?= $element4->class ?>">
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label for="element<?= $i+3 ?>Tag">Content</label>
+                                                        <textarea class="form-control ckeditor" type="text" name="element<?= $i+3 ?>Content"><?= $element4->content ?></textarea>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              <?php endforeach; ?>
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                      <?php endforeach; //End Element 3 Card?>
+
                                     </div>
                                   </div>
                                 </div>
-                              <?php endforeach; ?>
-                              <button type="submit" class="btn btn-success btn-sm btn-block">Save</button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
+                              <?php endforeach; //End Element 2 Card ?>
 
-                    <?php endforeach; ?>
+                            </div> <!-- End Element 1 Card Block -->
+                          </div> <!-- End Element 1 Collapse -->
+                        </div> <!-- End Element 1 Card -->
+                      <?php endforeach; //End for each element 1 on page ?>
+                      <button type="submit" class="btn btn-success btn-sm btn-block">Save</button>
+                    </form>
                   <?php endif; //End if page is active ?>
                 <?php endforeach; // End if foreach pages ?>
 
