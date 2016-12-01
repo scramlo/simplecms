@@ -179,7 +179,7 @@
 
         <div style="display:none;" id="preview">
           <?php //For each page... ?>
-          <?php foreach ($json->pages[0] as $page) {
+          <?php foreach ($json->pages as $page) {
 
             //If the page is active (to be shown on screen)
             if ($page->active == "true") {

@@ -18,82 +18,6 @@
           <h4>Welcome <?= $json->user->firstName ?>!</h4>
           <hr>
 
-          <?php //Begin User Settings ?>
-          <p>
-            <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseUserSettings" aria-expanded="false" aria-controls="collapseUserSettings">
-              User Settings
-              <span class="pull-xs-right">&#9660;</span>
-            </a>
-            <div class="collapse" id="collapseUserSettings">
-              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                <div class="form-group">
-                  <label for="userFirstName">First Name</label>
-                  <input value="<?= $json->user->firstName ?>" name="userFirstName" type="text" class="form-control" id="userFirstName" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                  <label for="userLastName">Last Name</label>
-                  <input value="<?= $json->user->lastName ?>" name="userLastName" type="text" class="form-control" id="userLastName" placeholder="Last Name">
-                </div>
-                <div class="form-group">
-                  <label for="userEmail">Email address</label>
-                  <input value="<?= $json->user->email ?>" name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email Address">
-                </div>
-                <div class="form-group">
-                  <label for="userCurrentPassword">Current Password</label>
-                  <input name="userCurrentPassword" type="password" class="form-control" id="userCurrentPassword" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="userNewPassword">New Password</label>
-                  <input name="userNewPassword" type="password" class="form-control" id="userNewPassword" placeholder="New Password">
-                </div>
-                <div class="form-group">
-                  <label for="userConfirmPassword">Confirm New Password</label>
-                  <input name="userConfirmPassword" type="password" class="form-control" id="userConfirmPassword" placeholder="Confirm New Password">
-                </div>
-                <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
-              </form>
-            </div>
-          </p>
-          <?php //End User Settings Section ?>
-
-          <?php //Begin Admin Theme Options Section ?>
-          <p>
-            <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseThemes" aria-expanded="false" aria-controls="collapseThemes">
-              Admin Themes
-              <span class="pull-xs-right">&#9660;</span>
-            </a>
-            <div class="collapse" id="collapseThemes">
-              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                <div class="form-group">
-                  <label for="changeTheme">Change Theme</label>
-                  <?php $i = 0; ?>
-                  <?php
-                  $currentThemeTitle = "";
-                  foreach ($json->theme as $theme) {
-                    if ($theme->active == "true") {
-                      $currentThemeTitle = $theme->title;
-                    }
-                  }
-                  ?>
-                  <?php foreach ($json->theme as $theme) : ?>
-                    <?php $checked = ""; ?>
-                    <?php if ($theme->title == $currentThemeTitle): ?>
-                      <?php $checked = "checked"; ?>
-                    <?php endif; ?>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="changeThemeRadios" id="changeThemeRadios-<?= $i ?>" value="<?= $theme->title ?>" <?= $checked ?>>
-                        <?= $theme->title ?>
-                      </label>
-                    </div>
-                    <?php $i++; ?>
-                  <?php endforeach; ?>
-                </div>
-                <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
-              </form>
-            </div>
-          </p>
-          <?php //End Admin Themes Section ?>
           <?php //Begin Pages Options Section ?>
           <p>
             <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -139,7 +63,85 @@
               </form>
             </div>
           </p>
-          <?php //End Pages Section ?>
+          <?php //End Pages Options Section ?>
+
+          <?php //Begin Admin Theme Options Section ?>
+          <p>
+            <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseThemes" aria-expanded="false" aria-controls="collapseThemes">
+              Admin Themes
+              <span class="pull-xs-right">&#9660;</span>
+            </a>
+            <div class="collapse" id="collapseThemes">
+              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <div class="form-group">
+                  <label for="changeTheme">Change Theme</label>
+                  <?php $i = 0; ?>
+                  <?php
+                  $currentThemeTitle = "";
+                  foreach ($json->theme as $theme) {
+                    if ($theme->active == "true") {
+                      $currentThemeTitle = $theme->title;
+                    }
+                  }
+                  ?>
+                  <?php foreach ($json->theme as $theme) : ?>
+                    <?php $checked = ""; ?>
+                    <?php if ($theme->title == $currentThemeTitle): ?>
+                      <?php $checked = "checked"; ?>
+                    <?php endif; ?>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="changeThemeRadios" id="changeThemeRadios-<?= $i ?>" value="<?= $theme->title ?>" <?= $checked ?>>
+                        <?= $theme->title ?>
+                      </label>
+                    </div>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </div>
+                <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+              </form>
+            </div>
+          </p>
+          <?php //End Admin Themes Section ?>
+
+          <?php //Begin User Settings ?>
+          <p>
+            <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseUserSettings" aria-expanded="false" aria-controls="collapseUserSettings">
+              User Settings
+              <span class="pull-xs-right">&#9660;</span>
+            </a>
+            <div class="collapse" id="collapseUserSettings">
+              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <div class="form-group">
+                  <label for="userFirstName">First Name</label>
+                  <input value="<?= $json->user->firstName ?>" name="userFirstName" type="text" class="form-control" id="userFirstName" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <label for="userLastName">Last Name</label>
+                  <input value="<?= $json->user->lastName ?>" name="userLastName" type="text" class="form-control" id="userLastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                  <label for="userEmail">Email address</label>
+                  <input value="<?= $json->user->email ?>" name="userEmail" type="email" class="form-control" id="userEmail" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                  <label for="userCurrentPassword">Current Password</label>
+                  <input name="userCurrentPassword" type="password" class="form-control" id="userCurrentPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="userNewPassword">New Password</label>
+                  <input name="userNewPassword" type="password" class="form-control" id="userNewPassword" placeholder="New Password">
+                </div>
+                <div class="form-group">
+                  <label for="userConfirmPassword">Confirm New Password</label>
+                  <input name="userConfirmPassword" type="password" class="form-control" id="userConfirmPassword" placeholder="Confirm New Password">
+                </div>
+                <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+              </form>
+            </div>
+          </p>
+          <?php //End User Settings Section ?>
+
         </div>
       </div>
     </div>

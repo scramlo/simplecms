@@ -2,7 +2,7 @@
     "theme": [
         {
             "title": "White Knight",
-            "active": false,
+            "active": true,
             "css": [
                 {
                     "body": [
@@ -22,7 +22,7 @@
         },
         {
             "title": "Dark Knight",
-            "active": true,
+            "active": false,
             "css": [
                 {
                     "body": [
@@ -82,7 +82,7 @@
             "slug": "index.php",
             "description": "This page was built with Simple CMS!!!",
             "published": "true",
-            "active": "false",
+            "active": "true",
             "elements": [
                 {
                     "element": {
@@ -131,7 +131,7 @@
         {
             "title": "About Me",
             "id": 2,
-            "active": "true"
+            "active": "false"
         }
     ]
 }
