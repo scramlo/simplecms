@@ -66,7 +66,7 @@
               <form action="updateOptionsPagesElements.php" method="post">
                 <div class="form-group">
                   <label for="addElement">Add Element</label>
-                  <select class="form-control" id="addElement">
+                  <select class="form-control" id="addElement" name="addElement">
                     <?php include("elements.inc"); ?>
                   </select>
                 </div>

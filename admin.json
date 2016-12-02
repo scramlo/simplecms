@@ -125,15 +125,27 @@
             "elements": [
                 {
                     "id": 0,
-                    "type": "The Type",
-                    "class": null,
-                    "name": "The Name"
+                    "type": "div",
+                    "class": "container",
+                    "name": "Container Padded"
                 },
                 {
                     "id": 1,
-                    "type": "The Type",
-                    "class": null,
-                    "name": "The Name"
+                    "type": "div",
+                    "class": "row",
+                    "name": "Row"
+                },
+                {
+                    "id": 2,
+                    "type": "div",
+                    "class": "col-xs-12",
+                    "name": "col-xs-12"
+                },
+                {
+                    "id": 3,
+                    "type": "textarea",
+                    "class": "ckeditor",
+                    "name": "Rich Text"
                 }
             ]
         },
