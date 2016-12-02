@@ -2,7 +2,7 @@
     "theme": [
         {
             "title": "White Knight",
-            "active": false,
+            "active": true,
             "css": [
                 {
                     "body": [
@@ -22,7 +22,7 @@
         },
         {
             "title": "Dark Knight",
-            "active": true,
+            "active": false,
             "css": [
                 {
                     "body": [
@@ -69,12 +69,69 @@
             ]
         }
     ],
-    "user": [
+    "user": {
+        "firstName": "Brian",
+        "lastName": "Scramlin",
+        "email": "scramlo@hotmail.com",
+        "password": "tipper"
+    },
+    "pages": [
         {
-            "firstName": "Brian",
-            "lastName": "Scramlin",
-            "email": "scramlo@hotmail.com",
-            "password": "tipper"
+            "id": 0,
+            "title": "Home",
+            "slug": "index.php",
+            "description": "This page was built with Simple CMS!!!",
+            "published": "true",
+            "active": "true",
+            "elements": [
+                {
+                    "element": {
+                        "type": "div",
+                        "class": "container",
+                        "content": "",
+                        "elements": [
+                            {
+                                "element": {
+                                    "type": "div",
+                                    "class": "row",
+                                    "content": "",
+                                    "elements": [
+                                        {
+                                            "element": {
+                                                "type": "div",
+                                                "class": "col-xs-12",
+                                                "content": "",
+                                                "elements": [
+                                                    {
+                                                        "element": {
+                                                            "type": "div",
+                                                            "class": "",
+                                                            "content": "<h1>My Home Page<\/h1>\r\n\r\n<h2>The only place you need to be.<\/h2>\r\n\r\n<hr \/>\r\n<p>This is my <strong>first time<\/strong> creating Rich Text on my website!<\/p>\r\n\r\n<p>This is significant because<\/p>\r\n\r\n<ol>\r\n\t<li>I&#39;ve never done this before.<\/li>\r\n\t<li>It&#39;s exciting.<\/li>\r\n\t<li>I&#39;m at Tim Horton&#39;s.<\/li>\r\n\t<li>There are other things.<\/li>\r\n\t<li>I am using a FANTASTIC RTE!!!<\/li>\r\n\t<li>Go <a href=\"http:\/\/ckeditor.com\">CKEDITOR<\/a>!<\/li>\r\n<\/ol>\r\n\r\n<p>I think Jessica said it best<\/p>\r\n\r\n<blockquote>\r\n<p>If you can&#39;t beat em&#39;, join em&#39;!<\/p>\r\n<\/blockquote>\r\n",
+                                                            "elements": []
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Blog",
+            "id": 1,
+            "active": "false",
+            "slug": "blog",
+            "description": "This is our blog. Read it. Now!"
+        },
+        {
+            "title": "About Me",
+            "id": 2,
+            "active": "false"
         }
     ]
 }

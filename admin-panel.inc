@@ -21,6 +21,7 @@
           <?php //Begin Pages Options Section ?>
           <p>
             <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              <span class="pull-xs-left"><i class="fa fa-file-o"></i></span>
               Pages
               <span class="pull-xs-right">&#9660;</span>
             </a>
@@ -61,6 +62,28 @@
                 </div>
                 <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
               </form>
+              <hr>
+              <form action="updateOptionsPagesElements.php" method="post">
+                <div class="form-group">
+                  <label for="addElement">Add Element</label>
+                  <select class="form-control" id="addElement">
+                    <?php include("elements.inc"); ?>
+                  </select>
+                </div>
+                <input type="hidden" name="pageId" value="<?= $currentPageId ?>">
+                <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+              </form>
+              <hr>
+              Elements
+              <ul>
+                <?php foreach ($json->pages as $page): ?>
+                  <?php if ($page->active == "true"): ?>
+                    <?php foreach ($page->elements as $element): ?>
+                      <li class="adminPanelPageElement"><?= $element->name ?></li>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </ul>
             </div>
           </p>
           <?php //End Pages Options Section ?>
@@ -68,6 +91,7 @@
           <?php //Begin Admin Theme Options Section ?>
           <p>
             <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseThemes" aria-expanded="false" aria-controls="collapseThemes">
+              <span class="pull-xs-left"><i class="fa fa-flag"></i></span>
               Admin Themes
               <span class="pull-xs-right">&#9660;</span>
             </a>
@@ -107,6 +131,7 @@
           <?php //Begin User Settings ?>
           <p>
             <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseUserSettings" aria-expanded="false" aria-controls="collapseUserSettings">
+              <span class="pull-xs-left"><i class="fa fa-gear"></i></span>
               User Settings
               <span class="pull-xs-right">&#9660;</span>
             </a>

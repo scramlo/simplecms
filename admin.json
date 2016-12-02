@@ -82,51 +82,60 @@
             "slug": "index.php",
             "description": "This page was built with Simple CMS!!!",
             "published": "true",
-            "active": "true",
+            "active": "false",
             "elements": [
                 {
-                    "element": {
-                        "type": "div",
-                        "class": "container",
-                        "content": "",
-                        "elements": [
-                            {
-                                "element": {
-                                    "type": "div",
-                                    "class": "row",
-                                    "content": "",
-                                    "elements": [
-                                        {
-                                            "element": {
-                                                "type": "div",
-                                                "class": "col-xs-12",
-                                                "content": "",
-                                                "elements": [
-                                                    {
-                                                        "element": {
-                                                            "type": "div",
-                                                            "class": "",
-                                                            "content": "<h1>My Home Page<\/h1>\r\n\r\n<h2>The only place you need to be.<\/h2>\r\n\r\n<hr \/>\r\n<p>This is my <strong>first time<\/strong> creating Rich Text on my website!<\/p>\r\n\r\n<p>This is significant because<\/p>\r\n\r\n<ol>\r\n\t<li>I&#39;ve never done this before.<\/li>\r\n\t<li>It&#39;s exciting.<\/li>\r\n\t<li>I&#39;m at Tim Horton&#39;s.<\/li>\r\n\t<li>There are other things.<\/li>\r\n\t<li>I am using a FANTASTIC RTE!!!<\/li>\r\n\t<li>Go <a href=\"http:\/\/ckeditor.com\">CKEDITOR<\/a>!<\/li>\r\n<\/ol>\r\n\r\n<p>I think Jessica said it best<\/p>\r\n\r\n<blockquote>\r\n<p>If you can&#39;t beat em&#39;, join em&#39;!<\/p>\r\n<\/blockquote>\r\n",
-                                                            "elements": []
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
+                    "id": 0,
+                    "type": "div",
+                    "class": "container",
+                    "name": "Container Padded"
+                },
+                {
+                    "id": 0.1,
+                    "type": "div",
+                    "class": "row",
+                    "name": "Row"
+                },
+                {
+                    "id": 0.2,
+                    "type": "div",
+                    "class": "col-xs-12",
+                    "name": "col-xs-12"
+                },
+                {
+                    "id": 0.3,
+                    "type": "div",
+                    "class": "ckeditor",
+                    "name": "Rich Text"
+                },
+                {
+                    "id": 0.11,
+                    "type": "div",
+                    "class": "row",
+                    "name": "Row"
                 }
             ]
         },
         {
             "title": "Blog",
             "id": 1,
-            "active": "false",
+            "active": "true",
             "slug": "blog",
-            "description": "This is our blog. Read it. Now!"
+            "description": "This is our blog. Read it. Now!",
+            "elements": [
+                {
+                    "id": 0,
+                    "type": "The Type",
+                    "class": null,
+                    "name": "The Name"
+                },
+                {
+                    "id": 1,
+                    "type": "The Type",
+                    "class": null,
+                    "name": "The Name"
+                }
+            ]
         },
         {
             "title": "About Me",
