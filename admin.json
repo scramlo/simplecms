@@ -83,38 +83,7 @@
             "description": "This page was built with Simple CMS!!!",
             "published": "true",
             "active": "false",
-            "elements": [
-                {
-                    "id": 0,
-                    "type": "div",
-                    "class": "container",
-                    "name": "Container Padded"
-                },
-                {
-                    "id": 0.1,
-                    "type": "div",
-                    "class": "row",
-                    "name": "Row"
-                },
-                {
-                    "id": 0.2,
-                    "type": "div",
-                    "class": "col-xs-12",
-                    "name": "col-xs-12"
-                },
-                {
-                    "id": 0.3,
-                    "type": "div",
-                    "class": "ckeditor",
-                    "name": "Rich Text"
-                },
-                {
-                    "id": 0.11,
-                    "type": "div",
-                    "class": "row",
-                    "name": "Row"
-                }
-            ]
+            "elements": []
         },
         {
             "title": "Blog",
@@ -127,25 +96,32 @@
                     "id": 0,
                     "type": "div",
                     "class": "container",
-                    "name": "Container Padded"
-                },
-                {
-                    "id": 1,
-                    "type": "div",
-                    "class": "row",
-                    "name": "Row"
-                },
-                {
-                    "id": 2,
-                    "type": "div",
-                    "class": "col-xs-12",
-                    "name": "col-xs-12"
-                },
-                {
-                    "id": 3,
-                    "type": "textarea",
-                    "class": "ckeditor",
-                    "name": "Rich Text"
+                    "name": "Container Padded",
+                    "hasChildren": "true",
+                    "elements": {
+                        "0": {
+                            "id": 0,
+                            "type": "div",
+                            "class": "row",
+                            "name": "Row",
+                            "hasChildren": "true",
+                            "elements": [
+                                {
+                                    "id": 0,
+                                    "type": "div",
+                                    "class": "col-xs-12",
+                                    "name": "col-xs-12"
+                                }
+                            ]
+                        },
+                        "": {
+                            "elements": [
+                                {
+                                    "hasChildren": "false"
+                                }
+                            ]
+                        }
+                    }
                 }
             ]
         },

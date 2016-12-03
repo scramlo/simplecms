@@ -4,6 +4,7 @@
 
   //Set variables for easy reading
   $pageId = $_POST["pageId"];
+  $elementId = $_POST["elementId"];
   $elementString = $_POST["addElement"];
   $elementArr = explode('|', $elementString);
   $elementType = $elementArr[0];
@@ -14,15 +15,17 @@
     if ($page->id == $pageId) {
       //Total Elements
       $totalElements = intval(count($page->elements));
+      $totalChildElements = intval(count($page->elements[$elementId]->elements));
 
-      $page->elements[$totalElements]->id = $totalElements;
-      $page->elements[$totalElements]->type = $elementType;
-      $page->elements[$totalElements]->class = $elementClass;
-      $page->elements[$totalElements]->name = $elementName;
+      $page->elements[$elementId]->elements[$totalChildElements]->id = $totalChildElements;
+      $page->elements[$elementId]->elements[$totalChildElements]->type = $elementType;
+      $page->elements[$elementId]->elements[$totalChildElements]->class = $elementClass;
+      $page->elements[$elementId]->elements[$totalChildElements]->name = $elementName;
+
       if (isset($_POST['hasChildren'])) {
-        $page->elements[$totalElements]->hasChildren = "true";
+        $page->elements[$elementId]->elements[$totalChildElements]->hasChildren = "true";
       } else {
-        $page->elements[$totalElements]->hasChildren = "false";
+        $page->elements[$elementId]->elements[$totalChildElements]->hasChildren = "false";
       }
     }
   }

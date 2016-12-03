@@ -30,6 +30,10 @@
           text-transform: uppercase;
       }
 
+      #workspace .container, #workspace .container-fluid, #workspace .row, #workspace .col-xs-12 {
+        border: 1px dotted red;
+      }
+
       <?php //If this is the admin page, load admin theme body css ?>
       <?php if (basename($_SERVER["SCRIPT_FILENAME"]) == "admin.php"){
       foreach ($json->theme as $theme) {

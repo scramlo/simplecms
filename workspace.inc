@@ -21,8 +21,7 @@
               if ($page->active == "true"): ?>
 
                 <?php //Workspace Meta Data ?>
-                <a data-toggle="collapse" class="btn btn-primary" id="toggleUpdateWorkspaceMetaForm" href="#updateWorkspaceMetaForm">Page Meta Data</a>
-                <form action="updateWorkspaceMeta.php" method="post" class="collapse" id="updateWorkspaceMetaForm">
+                <form action="updateWorkspaceMeta.php" method="post" id="updateWorkspaceMetaForm">
                   <div class="form-group">
                     <label for="pageId">Page ID</label>: <?= $page->id ?>
                   </div>
@@ -46,11 +45,28 @@
                 <hr>
 
                 <?php //Begin components ?>
-                <?php foreach ($page->elements as $element): ?>
-                  <?php
-                    echo "<" . $element->type . " class='" . $element->class . "'" . ">";
-                  ?>
-                <?php endforeach; ?>
+                <?php foreach ($page->elements as $element) {
+                    echo "<" . $element->type . " id='element-" . $element->id . "' class='" . $element->class . "'" . ">";
+                    if ($element->hasChildren == "true") {
+                      foreach ($element->elements as $childElement) {
+                        echo "<" . $childElement->type . " id='element-" . $element->id . $childElement->id . "' class='" . $childElement->class . "'" . ">";
+                        if ($childElement->hasChildren == "true") {
+                          foreach ($childElement->elements as $childChildElement) {
+                            echo "<" . $childChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement . "' class='" . $childChildElement->class . "'" . ">";
+                            if ($childChildElement->hasChildren == "true") {
+                              foreach ($childChildElement->elements as $childChildChildElement) {
+                                echo "<" . $childChildChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement->id . $childChildChildElement->id . "' class='" . $childChildChildElement->class . "'" . ">";
+                                echo "</" . $childChildChildElement->type . "><!-- End " . $childChildChildElement->name . " -->";
+                              }
+                            }
+                            echo "</" . $childChildElement->type . "><!-- End " . $childChildElement->name . " -->";
+                          }
+                        }
+                        echo "</" . $childElement->type . "><!-- End " . $childElement->name . " -->";
+                      }
+                    }
+                    echo "</" . $element->type . "><!-- End " . $element->name . " -->";
+                } ?>
                 <?php //End components ?>
 
               <?php endif; //End if page is active ?>
