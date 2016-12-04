@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+
       body {
         padding-top:2rem;
         padding-bottom:2rem;
@@ -30,11 +31,10 @@
           text-transform: uppercase;
       }
 
-      /*
-      #workspace .container, #workspace .container-fluid, #workspace .row, #workspace .col-xs-12 {
+      #workspace .container, #workspace .container-fluid, #workspace .row, #workspace .col-xs-12, #workspace .col-xs-6, #workspace .col-xs-4 {
         border: 1px dotted red;
-      */
       }
+
 
       <?php //If this is the admin page, load admin theme body css ?>
       <?php if (basename($_SERVER["SCRIPT_FILENAME"]) == "admin.php"){

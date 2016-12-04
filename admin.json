@@ -2,7 +2,7 @@
     "theme": [
         {
             "title": "White Knight",
-            "active": true,
+            "active": false,
             "css": [
                 {
                     "body": [
@@ -22,7 +22,7 @@
         },
         {
             "title": "Dark Knight",
-            "active": false,
+            "active": true,
             "css": [
                 {
                     "body": [
@@ -39,6 +39,11 @@
                     "hr": [
                         {
                             "background-color": "white"
+                        }
+                    ],
+                    ".card-header, .card label": [
+                        {
+                            "color": "#3b3b3b"
                         }
                     ]
                 }
@@ -87,65 +92,6 @@
                 {
                     "id": 0,
                     "type": "div",
-                    "class": "container-fluid",
-                    "name": "Container Full-Width",
-                    "hasChildren": "true",
-                    "elements": [
-                        {
-                            "id": 0,
-                            "type": "div",
-                            "class": "row",
-                            "name": "Row",
-                            "hasChildren": "true",
-                            "elements": [
-                                {
-                                    "id": 0,
-                                    "type": "div",
-                                    "class": "col-xs-6",
-                                    "name": "col-xs-6",
-                                    "hasChildren": "true",
-                                    "elements": [
-                                        {
-                                            "id": 0,
-                                            "type": "textarea",
-                                            "class": "ckeditor",
-                                            "name": "Rich Text",
-                                            "hasChildren": "false"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": 1,
-                                    "type": "div",
-                                    "class": "col-xs-6",
-                                    "name": "col-xs-6",
-                                    "hasChildren": "true",
-                                    "elements": [
-                                        {
-                                            "id": 0,
-                                            "type": "textarea",
-                                            "class": "ckeditor",
-                                            "name": "Rich Text",
-                                            "hasChildren": "false"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Blog",
-            "id": 1,
-            "active": "false",
-            "slug": "blog",
-            "description": "This is our blog. Read it. Now!",
-            "elements": [
-                {
-                    "id": 0,
-                    "type": "div",
                     "class": "container",
                     "name": "Container Padded",
                     "hasChildren": "true",
@@ -163,15 +109,97 @@
                                     "class": "col-xs-12",
                                     "name": "col-xs-12",
                                     "hasChildren": "true",
-                                    "elements": {
-                                        "_empty_": {
+                                    "elements": [
+                                        {
                                             "id": 0,
                                             "type": "textarea",
                                             "class": "ckeditor",
                                             "name": "Rich Text",
                                             "hasChildren": "false"
                                         }
-                                    }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1,
+                            "type": "div",
+                            "class": "row",
+                            "name": "Row",
+                            "hasChildren": "true",
+                            "elements": [
+                                {
+                                    "id": 0,
+                                    "type": "div",
+                                    "class": "col-xs-12",
+                                    "name": "col-xs-12",
+                                    "hasChildren": "true",
+                                    "elements": [
+                                        {
+                                            "id": 0,
+                                            "type": "img",
+                                            "class": "img-fluid",
+                                            "name": "Image Full-Width",
+                                            "hasChildren": "false"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "type": "div",
+                            "class": "row",
+                            "name": "Row",
+                            "hasChildren": "true",
+                            "elements": [
+                                {
+                                    "id": 0,
+                                    "type": "div",
+                                    "class": "col-xs-4",
+                                    "name": "col-xs-4",
+                                    "hasChildren": "true",
+                                    "elements": [
+                                        {
+                                            "id": 0,
+                                            "type": "img",
+                                            "class": "img-fluid",
+                                            "name": "Image Full-Width",
+                                            "hasChildren": "false"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "div",
+                                    "class": "col-xs-4",
+                                    "name": "col-xs-4",
+                                    "hasChildren": "true",
+                                    "elements": [
+                                        {
+                                            "id": 0,
+                                            "type": "img",
+                                            "class": "img-fluid",
+                                            "name": "Image Full-Width",
+                                            "hasChildren": "false"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 2,
+                                    "type": "div",
+                                    "class": "col-xs-4",
+                                    "name": "col-xs-4",
+                                    "hasChildren": "true",
+                                    "elements": [
+                                        {
+                                            "id": 0,
+                                            "type": "img",
+                                            "class": "img-fluid",
+                                            "name": "Image Full-Width",
+                                            "hasChildren": "false"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -180,9 +208,11 @@
             ]
         },
         {
-            "title": "About Me",
-            "id": 2,
-            "active": "false"
+            "title": "About Brian",
+            "id": 1,
+            "active": "false",
+            "slug": "about-brian",
+            "description": "The page that's all about muah."
         }
     ]
 }

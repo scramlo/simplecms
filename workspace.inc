@@ -58,8 +58,12 @@
 
                             if ($childChildElement->hasChildren == "true") {
                               foreach ($childChildElement->elements as $childChildChildElement) {
-                                echo "<" . $childChildChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement->id . $childChildChildElement->id . "' class='" . $childChildChildElement->class . "'" . ">";
-                                echo "</" . $childChildChildElement->type . "><!-- End " . $childChildChildElement->name . " -->";
+                                if ($childChildChildElement->type == "img") {
+                                  echo "<" . $childChildChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement->id . $childChildChildElement->id . "' class='" . $childChildChildElement->class . "' src='http://placehold.it/800x500'" . ">";
+                                } else {
+                                  echo "<" . $childChildChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement->id . $childChildChildElement->id . "' class='" . $childChildChildElement->class . "'" . ">";
+                                  echo "</" . $childChildChildElement->type . "><!-- End " . $childChildChildElement->name . " -->";
+                                }
                               }
                             }
 

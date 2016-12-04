@@ -23,5 +23,5 @@ for ($i = 1; $i <= 12; $i++) {
 ?>
 <option value="textarea|ckeditor|Rich Text">Rich Text</option>
 <option value="img||Image">Image</option>
-<option value="img|img-r|Image Full-Width">Image Full-Width</option>
+<option value="img|img-fluid|Image Full-Width">Image Full-Width</option>
 <option value="h1||Heading 1">Heading 1</option>
