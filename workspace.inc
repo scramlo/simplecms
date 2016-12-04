@@ -1,4 +1,4 @@
-<div class="col-xs-9">
+<div class="col-xs-8">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -47,24 +47,30 @@
                 <?php //Begin components ?>
                 <?php foreach ($page->elements as $element) {
                     echo "<" . $element->type . " id='element-" . $element->id . "' class='" . $element->class . "'" . ">";
+
                     if ($element->hasChildren == "true") {
                       foreach ($element->elements as $childElement) {
                         echo "<" . $childElement->type . " id='element-" . $element->id . $childElement->id . "' class='" . $childElement->class . "'" . ">";
+
                         if ($childElement->hasChildren == "true") {
                           foreach ($childElement->elements as $childChildElement) {
-                            echo "<" . $childChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement . "' class='" . $childChildElement->class . "'" . ">";
+                            echo "<" . $childChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement->id . "' class='" . $childChildElement->class . "'" . ">";
+
                             if ($childChildElement->hasChildren == "true") {
                               foreach ($childChildElement->elements as $childChildChildElement) {
                                 echo "<" . $childChildChildElement->type . " id='element-" . $element->id . $childElement->id . $childChildElement->id . $childChildChildElement->id . "' class='" . $childChildChildElement->class . "'" . ">";
                                 echo "</" . $childChildChildElement->type . "><!-- End " . $childChildChildElement->name . " -->";
                               }
                             }
+
                             echo "</" . $childChildElement->type . "><!-- End " . $childChildElement->name . " -->";
                           }
                         }
+
                         echo "</" . $childElement->type . "><!-- End " . $childElement->name . " -->";
                       }
                     }
+
                     echo "</" . $element->type . "><!-- End " . $element->name . " -->";
                 } ?>
                 <?php //End components ?>

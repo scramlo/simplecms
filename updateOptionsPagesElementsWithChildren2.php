@@ -5,7 +5,7 @@
   //Set variables for easy reading
   $pageId = $_POST["pageId"];
   $elementId = $_POST["elementId"];
-  $childElementId = $_POST["elementChildId"];
+  $childElementId = $_POST["childElementId"];
   $elementString = $_POST["addElement"];
   $elementArr = explode('|', $elementString);
   $elementType = $elementArr[0];
@@ -23,9 +23,9 @@
       $page->elements[$elementId]->elements[$childElementId]->elements[$totalChildChildElements]->name = $elementName;
 
       if (isset($_POST['hasChildren'])) {
-        $page->elements[$elementId]->elements[$totalChildElements]->elements[$totalChildChildElements]->hasChildren = "true";
+        $page->elements[$elementId]->elements[$childElementId]->elements[$totalChildChildElements]->hasChildren = "true";
       } else {
-        $page->elements[$elementId]->elements[$totalChildElements]->elements[$totalChildChildElements]->hasChildren = "false";
+        $page->elements[$elementId]->elements[$childElementId]->elements[$totalChildChildElements]->hasChildren = "false";
       }
     }
   }

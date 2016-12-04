@@ -98,8 +98,8 @@
                     "class": "container",
                     "name": "Container Padded",
                     "hasChildren": "true",
-                    "elements": {
-                        "0": {
+                    "elements": [
+                        {
                             "id": 0,
                             "type": "div",
                             "class": "row",
@@ -110,18 +110,21 @@
                                     "id": 0,
                                     "type": "div",
                                     "class": "col-xs-12",
-                                    "name": "col-xs-12"
-                                }
-                            ]
-                        },
-                        "": {
-                            "elements": [
-                                {
-                                    "hasChildren": "false"
+                                    "name": "col-xs-12",
+                                    "hasChildren": "true",
+                                    "elements": {
+                                        "": {
+                                            "id": 0,
+                                            "type": "textarea",
+                                            "class": "ckeditor",
+                                            "name": "Rich Text",
+                                            "hasChildren": "false"
+                                        }
+                                    }
                                 }
                             ]
                         }
-                    }
+                    ]
                 }
             ]
         },

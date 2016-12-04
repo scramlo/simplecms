@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="col-xs-3">
+    <div class="col-xs-4">
       Admin Panel
       <hr>
       <div id="side-panel" class="card">
@@ -82,68 +82,105 @@
               <hr>
               <strong>Elements</strong>
               <hr>
-                <?php foreach ($json->pages as $page): ?>
-                  <?php if ($page->active == "true"): ?>
-                    <?php foreach ($page->elements as $element): ?>
-                      <div class="card">
-                        <div class="card-header">
-                          <?= $element->name ?>
-                        </div>
-                        <div class="card-block">
-                          <?php if ($element->hasChildren == "true"): ?>
-                            <form action="updateOptionsPagesElementsWithChildren.php" method="post">
-                              <div class="form-group">
-                                <label for="addElement">Add Element</label>
-                                <select class="form-control" id="addElement" name="addElement">
-                                  <?php include("elements.inc"); ?>
-                                </select>
-                              </div>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" name="hasChildren" type="checkbox" value="">
-                                  Has Children
-                                </label>
-                              </div>
-                              <input type="hidden" name="pageId" value="<?= $currentPageId ?>">
-                              <input type="hidden" name="elementId" value="<?= $element->id ?>">
-                              <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
-                            </form>
-                            <hr>
-                            <?php foreach ($element->elements as $childElement): ?>
-                              <div class="card">
-                                <div class="card-header">
-                                  <?= $childElement->name ?>
-                                </div>
-                                <?php if ($childElement->hasChildren == "true"): ?>
-                                  <div class="card-block">
-                                    <form action="updateOptionsPagesElementsWithChildren2.php" method="post" class="p-l-1">
-                                      <div class="form-group">
-                                        <label for="addElement">Add Element</label>
-                                        <select class="form-control" id="addElement" name="addElement">
-                                          <?php include("elements.inc"); ?>
-                                        </select>
-                                      </div>
-                                      <div class="form-check">
-                                        <label class="form-check-label">
-                                          <input class="form-check-input" name="hasChildren" type="checkbox" value="">
-                                          Has Children
-                                        </label>
-                                      </div>
-                                      <input type="hidden" name="pageId" value="<?= $currentPageId ?>">
-                                      <input type="hidden" name="elementId" value="<?= $element->id ?>">
-                                      <input type="hidden" name="elementChildId" value="<?= $childElement->id ?>">
-                                      <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
-                                    </form>
-                                  </div>
-                                <?php endif; ?>
-                              </div>
-                            <?php endforeach; ?>
-                          <?php endif; ?>
-                        </div>
+              <?php foreach ($json->pages as $page): ?>
+                <?php if ($page->active == "true"): ?>
+
+                  <?php foreach ($page->elements as $element): ?>
+                    <div class="card">
+                      <div class="card-header">
+                        <?= $element->name ?>
                       </div>
-                    <?php endforeach; ?>
-                  <?php endif; ?>
-                <?php endforeach; ?>
+                      <div class="card-block">
+
+                        <?php if ($element->hasChildren == "true"): ?>
+                          <form action="updateOptionsPagesElementsWithChildren.php" method="post">
+                            <div class="form-group">
+                              <label for="addElement">Add Element</label>
+                              <select class="form-control" id="addElement" name="addElement">
+                                <?php include("elements.inc"); ?>
+                              </select>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" name="hasChildren" type="checkbox" value="">
+                                Has Children
+                              </label>
+                            </div>
+                            <input type="hidden" name="pageId" value="<?= $currentPageId ?>">
+                            <input type="hidden" name="elementId" value="<?= $element->id ?>">
+                            <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+                          </form>
+                          <hr>
+
+                          <?php foreach ($element->elements as $childElement): ?>
+                            <div class="card">
+                              <div class="card-header">
+                                <?= $childElement->name ?>
+                              </div>
+
+                              <?php if ($childElement->hasChildren == "true"): ?>
+                                <div class="card-block">
+                                  <form action="updateOptionsPagesElementsWithChildren2.php" method="post" class="p-l-1">
+                                    <div class="form-group">
+                                      <label for="addElement">Add Element</label>
+                                      <select class="form-control" id="addElement" name="addElement">
+                                        <?php include("elements.inc"); ?>
+                                      </select>
+                                    </div>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" name="hasChildren" type="checkbox" value="">
+                                        Has Children
+                                      </label>
+                                    </div>
+                                    <input type="hidden" name="pageId" value="<?= $currentPageId ?>">
+                                    <input type="hidden" name="elementId" value="<?= $element->id ?>">
+                                    <input type="hidden" name="childElementId" value="<?= $childElement->id ?>">
+                                    <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+                                  </form>
+                                  <hr>
+
+                                  <?php foreach ($childElement->elements as $childChildElement): ?>
+                                    <div class="card">
+                                      <div class="card-header">
+                                        <?= $childChildElement->name ?>
+                                      </div>
+
+                                      <?php if ($childChildElement->hasChildren == "true"): ?>
+                                        <div class="card-block">
+                                          <form action="updateOptionsPagesElementsWithChildren3.php" method="post" class="p-l-1">
+                                            <div class="form-group">
+                                              <label for="addElement">Add Element</label>
+                                              <select class="form-control" id="addElement" name="addElement">
+                                                <?php include("elements.inc"); ?>
+                                              </select>
+                                            </div>
+                                            <div class="form-check">
+                                              <label class="form-check-label">
+                                                <input class="form-check-input" name="hasChildren" type="checkbox" value="">
+                                                Has Children
+                                              </label>
+                                            </div>
+                                            <input type="hidden" name="pageId" value="<?= $currentPageId ?>">
+                                            <input type="hidden" name="elementId" value="<?= $element->id ?>">
+                                            <input type="hidden" name="childElementId" value="<?= $childElement->id ?>">
+                                            <input type="hidden" name="childChildElementId" value="<?= $childChildElement->id ?>">
+                                            <button type="submit" value="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
+                                          </form>
+                                        </div>
+                                      <?php endif; ?>
+                                    </div>
+                                  <?php endforeach; ?>
+                                </div>
+                              <?php endif; ?>
+                            </div>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              <?php endforeach; ?>
             </div>
           </p>
           <?php //End Pages Options Section ?>
