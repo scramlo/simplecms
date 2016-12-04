@@ -82,13 +82,64 @@
             "slug": "index.php",
             "description": "This page was built with Simple CMS!!!",
             "published": "true",
-            "active": "false",
-            "elements": []
+            "active": "true",
+            "elements": [
+                {
+                    "id": 0,
+                    "type": "div",
+                    "class": "container-fluid",
+                    "name": "Container Full-Width",
+                    "hasChildren": "true",
+                    "elements": [
+                        {
+                            "id": 0,
+                            "type": "div",
+                            "class": "row",
+                            "name": "Row",
+                            "hasChildren": "true",
+                            "elements": [
+                                {
+                                    "id": 0,
+                                    "type": "div",
+                                    "class": "col-xs-6",
+                                    "name": "col-xs-6",
+                                    "hasChildren": "true",
+                                    "elements": [
+                                        {
+                                            "id": 0,
+                                            "type": "textarea",
+                                            "class": "ckeditor",
+                                            "name": "Rich Text",
+                                            "hasChildren": "false"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "div",
+                                    "class": "col-xs-6",
+                                    "name": "col-xs-6",
+                                    "hasChildren": "true",
+                                    "elements": [
+                                        {
+                                            "id": 0,
+                                            "type": "textarea",
+                                            "class": "ckeditor",
+                                            "name": "Rich Text",
+                                            "hasChildren": "false"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "title": "Blog",
             "id": 1,
-            "active": "true",
+            "active": "false",
             "slug": "blog",
             "description": "This is our blog. Read it. Now!",
             "elements": [
@@ -113,7 +164,7 @@
                                     "name": "col-xs-12",
                                     "hasChildren": "true",
                                     "elements": {
-                                        "": {
+                                        "_empty_": {
                                             "id": 0,
                                             "type": "textarea",
                                             "class": "ckeditor",

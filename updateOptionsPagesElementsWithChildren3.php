@@ -18,15 +18,15 @@
       //Total Elements
       $totalChildChildChildElements = intval(count($page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements));
 
-      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildElements]->id = $totalChildChildChildElements;
-      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildElements]->type = $elementType;
-      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildElements]->class = $elementClass;
-      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildElements]->name = $elementName;
+      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildChildElements]->id = $totalChildChildChildElements;
+      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildChildElements]->type = $elementType;
+      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildChildElements]->class = $elementClass;
+      $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildChildElements]->name = $elementName;
 
       if (isset($_POST['hasChildren'])) {
-        $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildElements]->hasChildren = "true";
+        $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildChildElements]->hasChildren = "true";
       } else {
-        $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildElements]->hasChildren = "false";
+        $page->elements[$elementId]->elements[$childElementId]->elements[$childChildElementId]->elements[$totalChildChildChildElements]->hasChildren = "false";
       }
     }
   }
